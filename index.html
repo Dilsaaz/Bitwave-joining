@@ -12,6 +12,34 @@
     .neon-text { text-shadow: 0 0 25px #00f5ff; }
     .live-bar { background: rgba(0, 255, 100, 0.1); border-left: 4px solid #00ff88; }
     .coin-card { transition: all 0.4s ease; }
+
+    /* Premium Shining Button */
+    .premium-btn {
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3),
+                  0 0 20px rgba(0, 245, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .premium-btn:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 245, 255, 0.5),
+                  0 0 30px rgba(0, 245, 255, 0.4);
+    }
+    .premium-btn::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+      transform: skewX(-25deg);
+      transition: all 0.7s;
+    }
+    .premium-btn:hover::before {
+      left: 150%;
+    }
   </style>
 </head>
 <body class="bg-black text-white">
@@ -44,17 +72,7 @@
             Trade cryptocurrencies with real-time profits and consistent returns.
           </p>
           
-          <div class="mt-10 flex flex-wrap gap-4">
-            <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc12TOIorVIlTCnFkK0jdlkpymGIKwQoXpFery67oG4Yd1Zxg/viewform?usp=dialog', '_blank')" 
-              class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 px-8 py-4 rounded-full text-lg font-semibold">
-              Start Registration
-            </button>
-            
-            <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeIE7FoT77E4l3j-BIZ0c32Rl47URYqvy5jVhRj8Cw0-8C5Ow/viewform?usp=dialog', '_blank')" 
-              class="border border-cyan-400 hover:bg-cyan-950 px-8 py-4 rounded-full text-lg font-semibold">
-              Top Up Fund Wallet
-            </button>
-          </div>
+          <!-- Top Up Button Removed -->
         </div>
 
         <!-- Live Trading Box -->
@@ -63,7 +81,6 @@
             <h3 class="text-xl font-bold text-cyan-400">🔴 LIVE TRADING FEED</h3>
             <span class="text-green-400 text-sm font-medium">Market Open • AI Active</span>
           </div>
-          
           <div id="live-trades" class="space-y-4"></div>
         </div>
       </div>
@@ -75,9 +92,37 @@
     <div class="max-w-6xl mx-auto px-6 text-center">
       <h2 class="text-4xl font-bold mb-6 neon-text">Our Vision</h2>
       <p class="max-w-3xl mx-auto text-lg text-gray-300">
-        Bitwave Global is an AI-driven cryptocurrency trading platform designed to deliver consistent daily profits through intelligent automated trading. 
-        We combine cutting-edge artificial intelligence with global market opportunities to help our members achieve financial growth with transparency and security.
+        Bitwave Global is an AI-driven cryptocurrency trading platform designed to deliver consistent daily profits through intelligent automated trading.
       </p>
+    </div>
+  </section>
+
+  <!-- Quick Actions - Prominent -->
+  <section id="join" class="py-16 bg-zinc-950 border-t border-b border-cyan-900/30">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-10 neon-text">Quick Actions</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc12TOIorVIlTCnFkK0jdlkpymGIKwQoXpFery67oG4Yd1Zxg/viewform?usp=dialog', '_blank')" 
+          class="premium-btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 p-8 rounded-3xl text-xl font-bold shadow-2xl">
+          Register Now
+        </button>
+        
+        <button onclick="telegramAccountDetails()" 
+          class="premium-btn bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-400 hover:to-cyan-500 p-8 rounded-3xl text-xl font-bold shadow-2xl">
+          Account Details
+        </button>
+        
+        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeIE7FoT77E4l3j-BIZ0c32Rl47URYqvy5jVhRj8Cw0-8C5Ow/viewform?usp=dialog', '_blank')" 
+          class="premium-btn bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-400 hover:to-pink-500 p-8 rounded-3xl text-xl font-bold shadow-2xl">
+          Top Up Wallet
+        </button>
+        
+        <button onclick="window.open('https://t.me/+_ZBOnti4gOhhYjFl', '_blank')" 
+          class="premium-btn bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 p-8 rounded-3xl text-xl font-bold shadow-2xl">
+          Join Telegram Group
+        </button>
+      </div>
     </div>
   </section>
 
@@ -87,9 +132,9 @@
       <h2 class="text-4xl font-bold text-center mb-12 neon-text">Investment Plan</h2>
       
       <div class="grid md:grid-cols-2 gap-8">
-        <!-- Daily Profit Slabs -->
+        <!-- Daily Trade Profit -->
         <div class="bg-zinc-900 p-8 rounded-3xl">
-          <h3 class="text-2xl font-bold text-cyan-400 mb-6">Daily Trade Profit</h3>
+          <h3 class="text-2xl font-bold text-cyan-400 mb-6">💰 Daily Trade Profit</h3>
           <ul class="space-y-4 text-gray-300">
             <li>$50 – $201 → <span class="text-green-400">1.4% – 1.5%</span></li>
             <li>$201 – $500 → <span class="text-green-400">1.5% – 2.1%</span></li>
@@ -98,58 +143,49 @@
             <li>$5,000 – $20,000 → <span class="text-green-400">3.5% – 4.1%</span></li>
             <li>$20,000 – $35,000 → <span class="text-green-400">4.1% – 5.0%</span></li>
           </ul>
+          <p class="mt-6 text-amber-400 text-sm font-medium">
+            ⚠️ Note: Daily Compounding Profit is available only to members who achieve their respective Levels.
+          </p>
         </div>
 
-        <!-- Rewards -->
-        <div class="bg-zinc-900 p-8 rounded-3xl">
-          <h3 class="text-2xl font-bold text-cyan-400 mb-6">Extra Rewards & Features</h3>
-          <p class="mb-4"><strong>Direct Referral:</strong> <span class="text-purple-400 font-bold">16% Instant</span></p>
-          <p class="mb-6"><strong>Withdrawal Fee:</strong> 28% (L0) | 25% (L1-3) | 20% (L4-6)</p>
-          
-          <!-- Updated Button -->
-          <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd3E2_M1DWxsCi1_mSyTWFhEKja9FaPVVYzS-DvdVKcjgaEMQ/viewform?usp=dialog', '_blank')" 
-            class="w-full bg-red-600 hover:bg-red-500 py-4 rounded-2xl font-semibold mb-4">
-            Trade Profit Withdrawal (Min $30)
-          </button>
-          
-          <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfWTJEvjoL21Jw84KLGUNx2rv8j9eUfTtxs6B4FFn-AE6wgqQ/viewform?usp=dialog', '_blank')" 
-            class="w-full bg-amber-600 hover:bg-amber-500 py-4 rounded-2xl font-semibold mb-4">
-            Team Income Withdrawal (Min $15)
-          </button>
-          
-          <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdvFJc96n_U-VnKGTiXM6nJpA--NTvL0-O5xrO88tC-rKuEGQ/viewform?usp=dialog', '_blank')" 
-            class="w-full bg-green-600 hover:bg-green-500 py-4 rounded-2xl font-semibold">
-            Reinvest Profit
-          </button>
+        <!-- Regrow Income -->
+        <div class="bg-gradient-to-br from-emerald-900/40 to-cyan-900/40 p-8 rounded-3xl border border-emerald-500/30">
+          <h3 class="text-2xl font-bold text-emerald-400 mb-6">🌱 Regrow Income</h3>
+          <div class="bg-black/50 p-6 rounded-2xl mb-6">
+            <p class="text-xl font-semibold text-white">50% of Daily Trade Profit</p>
+            <p class="text-emerald-400 text-3xl font-bold mt-2">Automatically goes to Regrow Wallet</p>
+          </div>
+          <ul class="space-y-4 text-gray-300">
+            <li>✅ <strong>50%</strong> of your daily profit is automatically added to your <strong>Regrow Wallet</strong></li>
+            <li>✅ This amount remains locked for <strong>30 days</strong></li>
+            <li>✅ After 30 days you can <strong>Withdraw</strong> or <strong>Reinvest</strong> it</li>
+            <li>✅ Helps in long-term compounding and account growth</li>
+          </ul>
+          <div class="mt-8 text-center text-sm text-emerald-300">
+            Strong &amp; Sustainable Growth Strategy
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Quick Actions -->
-  <section id="join" class="py-20 bg-zinc-950">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-12 neon-text">Quick Actions</h2>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc12TOIorVIlTCnFkK0jdlkpymGIKwQoXpFery67oG4Yd1Zxg/viewform?usp=dialog', '_blank')" 
-          class="bg-gradient-to-r from-cyan-500 to-blue-600 p-8 rounded-3xl hover:scale-105 transition-all">
-          <h3 class="text-2xl font-bold">Register Now</h3>
+      <!-- Rewards Section -->
+      <div class="mt-12 bg-zinc-900 p-8 rounded-3xl">
+        <h3 class="text-2xl font-bold text-cyan-400 mb-6">Extra Rewards & Features</h3>
+        <p class="mb-4"><strong>Direct Referral:</strong> <span class="text-purple-400 font-bold">16% Instant</span></p>
+        <p class="mb-6"><strong>Withdrawal Fee:</strong> 28% (L0) | 25% (L1-3) | 20% (L4-6)</p>
+        
+        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd3E2_M1DWxsCi1_mSyTWFhEKja9FaPVVYzS-DvdVKcjgaEMQ/viewform?usp=dialog', '_blank')" 
+          class="premium-btn w-full bg-red-600 hover:bg-red-500 py-4 rounded-2xl font-semibold mb-4 text-lg">
+          Trade Profit Withdrawal (Min $30)
         </button>
         
-        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeIE7FoT77E4l3j-BIZ0c32Rl47URYqvy5jVhRj8Cw0-8C5Ow/viewform?usp=dialog', '_blank')" 
-          class="bg-gradient-to-r from-purple-500 to-pink-600 p-8 rounded-3xl hover:scale-105 transition-all">
-          <h3 class="text-2xl font-bold">Top Up Wallet</h3>
+        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfWTJEvjoL21Jw84KLGUNx2rv8j9eUfTtxs6B4FFn-AE6wgqQ/viewform?usp=dialog', '_blank')" 
+          class="premium-btn w-full bg-amber-600 hover:bg-amber-500 py-4 rounded-2xl font-semibold mb-4 text-lg">
+          Team Income Withdrawal (Min $15)
         </button>
         
-        <button onclick="telegramAccountDetails()" 
-          class="bg-gradient-to-r from-blue-500 to-cyan-600 p-8 rounded-3xl hover:scale-105 transition-all">
-          <h3 class="text-2xl font-bold">Account Details</h3>
-        </button>
-        
-        <button onclick="window.open('https://t.me/+_ZBOnti4gOhhYjFl', '_blank')" 
-          class="bg-gradient-to-r from-green-500 to-emerald-600 p-8 rounded-3xl hover:scale-105 transition-all">
-          <h3 class="text-2xl font-bold">Join Telegram Group</h3>
+        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdvFJc96n_U-VnKGTiXM6nJpA--NTvL0-O5xrO88tC-rKuEGQ/viewform?usp=dialog', '_blank')" 
+          class="premium-btn w-full bg-green-600 hover:bg-green-500 py-4 rounded-2xl font-semibold text-lg">
+          Reinvest Profit
         </button>
       </div>
     </div>
@@ -171,11 +207,9 @@
     function updateLiveTrades() {
       const container = document.getElementById('live-trades');
       container.innerHTML = '';
-
       coins.forEach(coin => {
         const profit = (Math.random() * 45 + 15).toFixed(2);
         const isPositive = Math.random() > 0.3;
-
         const div = document.createElement('div');
         div.className = `live-bar p-4 rounded-2xl flex justify-between items-center coin-card`;
         div.innerHTML = `
