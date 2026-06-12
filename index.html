@@ -73,10 +73,12 @@
           </p>
         </div>
 
-        <!-- Live Trading Box -->
-        <div class="bg-zinc-950 border border-cyan-500/30 rounded-3xl p-6">
+        <!-- Premium Live Trading Box -->
+        <div class="bg-zinc-950 border border-cyan-500/50 rounded-3xl p-6 shadow-2xl">
           <div class="flex justify-between items-center mb-6">
-            <h3 class="text-xl font-bold text-cyan-400">🔴 LIVE TRADING FEED</h3>
+            <h3 class="text-xl font-bold text-cyan-400 flex items-center gap-2">
+              <span class="text-red-500">🔴</span> LIVE AI TRADING FEED
+            </h3>
             <span class="text-green-400 text-sm font-medium">Market Open • AI Active</span>
           </div>
           <div id="live-trades" class="space-y-4"></div>
@@ -99,7 +101,6 @@
   <section id="join" class="py-16 bg-zinc-950 border-t border-b border-cyan-900/30">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <h2 class="text-4xl font-bold mb-10 neon-text">Quick Actions</h2>
-      
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc12TOIorVIlTCnFkK0jdlkpymGIKwQoXpFery67oG4Yd1Zxg/viewform?usp=dialog', '_blank')" 
           class="premium-btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 p-8 rounded-3xl text-xl font-bold shadow-2xl">
@@ -130,8 +131,7 @@
       <h2 class="text-4xl font-bold text-center mb-12 neon-text">Investment Plan</h2>
       
       <div class="grid md:grid-cols-2 gap-8">
-        
-        <!-- Daily Trade Profit - Updated Ranges -->
+        <!-- Daily Trade Profit -->
         <div class="bg-zinc-900 p-8 rounded-3xl">
           <h3 class="text-2xl font-bold text-cyan-400 mb-6">💰 Daily Trade Profit</h3>
           <ul class="space-y-4 text-gray-300">
@@ -144,21 +144,23 @@
           </ul>
         </div>
 
-        <!-- Regrow Income -->
+        <!-- Regrow Income - Updated -->
         <div class="bg-gradient-to-br from-emerald-900/40 to-cyan-900/40 p-8 rounded-3xl border border-emerald-500/30">
           <h3 class="text-2xl font-bold text-emerald-400 mb-6">🌱 Regrow Income</h3>
-          <div class="bg-black/50 p-6 rounded-2xl mb-6">
+          <div class="bg-black/50 p-6 rounded-2xl mb-6 text-center">
             <p class="text-xl font-semibold text-white">50% of Daily Trade Profit</p>
-            <p class="text-emerald-400 text-3xl font-bold mt-2">Automatically goes to Regrow Wallet</p>
+            <p class="text-2xl font-bold text-emerald-400 mt-2">Automatically Added to Regrow Wallet</p>
           </div>
-          <ul class="space-y-4 text-gray-300">
-            <li>✅ <strong>50%</strong> of your daily profit is automatically added to your <strong>Regrow Wallet</strong></li>
-            <li>✅ This amount remains locked for <strong>30 days</strong></li>
-            <li>✅ After 30 days you can <strong>Withdraw</strong> or <strong>Reinvest</strong> it</li>
-            <li>✅ Helps in long-term compounding and account growth</li>
-          </ul>
-          <div class="mt-8 text-center text-sm text-emerald-300">
-            Strong &amp; Sustainable Growth Strategy
+
+          <p class="text-center text-white font-semibold mb-4">Regrow Lock Period by Level</p>
+          <div class="grid md:grid-cols-2 gap-3 text-sm">
+            <div class="bg-zinc-900 p-3 rounded-xl text-center">Level 0 → <span class="text-red-400 font-bold">30 Days</span></div>
+            <div class="bg-zinc-900 p-3 rounded-xl text-center">Level 1 → <span class="text-orange-400 font-bold">25 Days</span></div>
+            <div class="bg-zinc-900 p-3 rounded-xl text-center">Level 2 → <span class="text-yellow-400 font-bold">20 Days</span></div>
+            <div class="bg-zinc-900 p-3 rounded-xl text-center">Level 3 → <span class="text-amber-400 font-bold">15 Days</span></div>
+            <div class="bg-zinc-900 p-3 rounded-xl text-center">Level 4 → <span class="text-lime-400 font-bold">10 Days</span></div>
+            <div class="bg-zinc-900 p-3 rounded-xl text-center">Level 5 → <span class="text-green-400 font-bold">5 Days</span></div>
+            <div class="bg-emerald-900 p-3 rounded-xl text-center col-span-2 font-bold text-emerald-400">Level 6 → Anytime Withdrawal (No Lock)</div>
           </div>
         </div>
       </div>
@@ -204,25 +206,25 @@
       const container = document.getElementById('live-trades');
       container.innerHTML = '';
       coins.forEach(coin => {
-        const profit = (Math.random() * 45 + 15).toFixed(2);
-        const isPositive = Math.random() > 0.3;
+        const profit = (Math.random() * 120 + 35).toFixed(2); // Bigger profits
+        const isPositive = Math.random() > 0.25;
         const div = document.createElement('div');
         div.className = `live-bar p-4 rounded-2xl flex justify-between items-center coin-card`;
         div.innerHTML = `
           <div>
             <span class="font-bold text-lg">${coin.name}</span>
-            <span class="text-xs text-gray-400 ml-2">AI Trade</span>
+            <span class="text-xs text-gray-400 ml-2">AI Trade • High Volume</span>
           </div>
           <div class="text-right">
-            <p class="text-sm text-gray-400">Profit</p>
-            <p class="${isPositive ? 'text-green-400' : 'text-red-400'} font-bold">+$${profit}</p>
+            <p class="text-sm text-gray-400">Profit Generated</p>
+            <p class="${isPositive ? 'text-green-400' : 'text-red-400'} font-bold text-xl">+$${profit}</p>
           </div>
         `;
         container.appendChild(div);
       });
     }
 
-    setInterval(updateLiveTrades, 2500);
+    setInterval(updateLiveTrades, 1800); // Faster updates
     updateLiveTrades();
 
     function telegramAccountDetails() {
